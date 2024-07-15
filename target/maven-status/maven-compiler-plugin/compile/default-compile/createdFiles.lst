@@ -2,9 +2,10 @@ com\hung\do_an\BaseEntity.class
 com\hung\do_an\TeachersEntity.class
 com\hung\do_an\Students.class
 com\hung\do_an\StudentsEntity.class
-module-info.class
 com\hung\do_an\App.class
 com\hung\do_an\Teachers.class
 com\hung\do_an\SecondaryController.class
 com\hung\do_an\Users.class
+com\hung\do_an\LoginController.class
+module-info.class
 com\hung\do_an\PrimaryController.class
