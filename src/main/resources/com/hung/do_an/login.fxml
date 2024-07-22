@@ -17,7 +17,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0">
                <children>
-                  <ImageView fitHeight="350.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="596.0" fitWidth="399.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../aptech_icon.png" />
                      </image>
