@@ -123,6 +123,6 @@
          </children>
       </AnchorPane>
       <Pane fx:id="header" layoutX="150.0" prefHeight="75.0" prefWidth="650.0" style="-fx-background-color: #ff1717;" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Pane fx:id="sidebar" layoutY="3.0" prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #454545;" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane fx:id="sidebar" prefHeight="1080.0" prefWidth="250.0" style="-fx-background-color: #454545;" />
    </children>
 </AnchorPane>
