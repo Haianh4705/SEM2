@@ -1,5 +1,6 @@
 com\hung\do_an\BaseEntity.class
 com\hung\do_an\TeachersEntity.class
+com\hung\do_an\ClassController.class
 com\hung\do_an\Students.class
 com\hung\do_an\StudentsEntity.class
 com\hung\do_an\App.class
