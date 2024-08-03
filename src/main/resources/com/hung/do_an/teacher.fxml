@@ -27,7 +27,7 @@
                      <children>
                         <VBox fx:id="header__logo" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="113.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="header_icon" fitHeight="113.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../1516361101-fGQDcKd.png" />
                                  </image>
@@ -48,12 +48,12 @@
                <left>
                   <AnchorPane fx:id="sidebar" prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #2b2b2b;" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="siderbar__page__button" alignment="TOP_LEFT" layoutX="25.0" layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Trang chủ" textFill="WHITE" AnchorPane.topAnchor="30.0">
+                        <Button fx:id="siderbar_mainpage_button" alignment="TOP_LEFT" layoutX="25.0" layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Trang chủ" textFill="WHITE" AnchorPane.topAnchor="30.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="sidebar__logout__button" alignment="TOP_LEFT" layoutX="25.0" layoutY="596.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Đăng Xuất" textFill="RED" AnchorPane.bottomAnchor="15.0">
+                        <Button fx:id="sidebar_logout_button" alignment="TOP_LEFT" layoutX="25.0" layoutY="596.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Đăng Xuất" textFill="RED" AnchorPane.bottomAnchor="15.0">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -214,7 +214,7 @@
                                              </font>
                                           </Label>
                                           <TextField fx:id="class_year_textfield" layoutX="180.0" layoutY="260.0" prefWidth="200.0" />
-                                          <ChoiceBox layoutX="180.0" layoutY="220.0" prefWidth="200.0" />
+                                          <ChoiceBox fx:id="class_sex" layoutX="180.0" layoutY="220.0" prefWidth="200.0" />
                                           <Button fx:id="class_add_button" layoutX="54.0" layoutY="324.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Them">
                                              <font>
                                                 <Font size="18.0" />
