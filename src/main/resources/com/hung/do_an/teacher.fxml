@@ -27,7 +27,7 @@
                      <children>
                         <VBox fx:id="header__logo" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="header_icon" fitHeight="113.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="headerLogo" fitHeight="113.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../1516361101-fGQDcKd.png" />
                                  </image>
@@ -37,7 +37,7 @@
                               </ImageView>
                            </children>
                         </VBox>
-                        <Label fx:id="header__welcome" layoutX="1105.0" layoutY="33.0" text="Xin chào, Thầy/Cô" textFill="WHITE" AnchorPane.rightAnchor="50.0">
+                        <Label fx:id="headerWelcome" layoutX="1105.0" layoutY="33.0" text="Xin chào, Giảng Viên" textFill="WHITE" AnchorPane.rightAnchor="50.0">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -48,12 +48,21 @@
                <left>
                   <AnchorPane fx:id="sidebar" prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #2b2b2b;" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="siderbar_mainpage_button" alignment="TOP_LEFT" layoutX="25.0" layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Trang chủ" textFill="WHITE" AnchorPane.topAnchor="30.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="sidebar_logout_button" alignment="TOP_LEFT" layoutX="25.0" layoutY="596.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Đăng Xuất" textFill="RED" AnchorPane.bottomAnchor="15.0">
+                        <VBox alignment="CENTER" layoutX="5.0" prefHeight="160.0" prefWidth="200.0" spacing="50.0">
+                           <children>
+                              <Button fx:id="sidebarHomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Trang chủ" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="sidebarClassBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Lớp học" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <Button fx:id="sidebarLogout" alignment="TOP_LEFT" layoutX="25.0" layoutY="596.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Đăng Xuất" textFill="RED" AnchorPane.bottomAnchor="15.0">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -64,15 +73,15 @@
                <right>
                   <AnchorPane prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;" visible="false">
+                        <AnchorPane fx:id="classesPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;" visible="false">
                            <children>
                               <VBox layoutY="30.0" prefHeight="620.0" prefWidth="1080.0" AnchorPane.topAnchor="30.0">
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1073.0" spacing="110.0">
                                        <children>
-                                          <Button fx:id="class__button" mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                          <Button fx:id="classBtn" mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
                                              <graphic>
-                                                <Pane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #3dbf00; -fx-background-radius: 30;">
+                                                <Pane fx:id="class1Btn" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #3dbf00; -fx-background-radius: 30;">
                                                    <children>
                                                       <Label layoutX="14.0" layoutY="14.0" text="Lớp 1" textFill="WHITE">
                                                          <font>
@@ -93,7 +102,7 @@
                                                 </Pane>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="class__button" mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                          <Button fx:id="classBtn" mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
                                              <graphic>
                                                 <Pane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #009fc7; -fx-background-radius: 20px;">
                                                    <children>
@@ -145,23 +154,23 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;">
+                        <AnchorPane fx:id="classPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;">
                            <children>
                               <Pane layoutY="30.0" prefHeight="620.0" prefWidth="400.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" AnchorPane.leftAnchor="0.0">
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="180.0" prefWidth="400.0" spacing="10.0" style="-fx-border-color: #ccc;">
                                        <children>
-                                          <Label fx:id="class_name_class_label" text="Lop 1">
+                                          <Label fx:id="className" text="Lop 1">
                                              <font>
                                                 <Font size="48.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="class_name_subject_label" text="Java">
+                                          <Label fx:id="classSubject" text="Java">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="class_number_student_label" text="So Sinh Vien: 20">
+                                          <Label fx:id="numberStudent" text="So Sinh Vien: 20">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -173,80 +182,88 @@
                                     </VBox>
                                     <AnchorPane layoutY="179.0" prefHeight="450.0" prefWidth="400.0">
                                        <children>
-                                          <Label layoutX="30.0" layoutY="20.0" text="Ten:">
+                                          <Label fx:id="studentName" layoutX="30.0" layoutY="20.0" text="Tên:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="class_name_textfield" layoutX="180.0" layoutY="20.0" prefWidth="200.0" />
-                                          <Label layoutX="30.0" layoutY="60.0" text="Email:">
+                                          <TextField fx:id="studentNameTxt" layoutX="180.0" layoutY="20.0" prefWidth="200.0" />
+                                          <Label fx:id="studentEmail" layoutX="30.0" layoutY="60.0" text="Email:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="class_email_textfield" layoutX="180.0" layoutY="60.0" prefWidth="200.0" />
-                                          <Label layoutX="30.0" layoutY="100.0" text="SDT:">
+                                          <TextField fx:id="studentEmailTxt" layoutX="180.0" layoutY="60.0" prefWidth="200.0" />
+                                          <Label fx:id="studentPhoneNumber" layoutX="30.0" layoutY="100.0" text="Số Điện Thoại:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="class_phone_textfield" layoutX="180.0" layoutY="100.0" prefWidth="200.0" />
-                                          <Label layoutX="30.0" layoutY="140.0" text="Que Quan:">
+                                          <TextField fx:id="studentPhoneNumberTxt" layoutX="180.0" layoutY="100.0" prefWidth="200.0" />
+                                          <Label fx:id="studentBirthPlace" layoutX="30.0" layoutY="140.0" text="Quê Quán:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="class_birth_place_textfield" layoutX="180.0" layoutY="140.0" prefWidth="200.0" />
-                                          <Label layoutX="30.0" layoutY="180.0" text="Ngay Sinh:">
+                                          <TextField fx:id="studentBirthPlaceTxt" layoutX="180.0" layoutY="140.0" prefWidth="200.0" />
+                                          <Label fx:id="studentBirthDate" layoutX="30.0" layoutY="180.0" text="Ngày Sinh:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="class_birth_date_textfield" layoutX="180.0" layoutY="180.0" prefWidth="200.0" />
-                                          <Label layoutX="30.0" layoutY="220.0" text="Gioi Tinh:">
+                                          <TextField fx:id="studentBirthDateTxt" layoutX="180.0" layoutY="180.0" prefWidth="200.0" />
+                                          <Label fx:id="studentGender" layoutX="30.0" layoutY="220.0" text="Giới Tính:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="30.0" layoutY="260.0" text="Nam Nhap Hoc:">
+                                          <Label fx:id="studentYearEnroll" layoutX="30.0" layoutY="260.0" text="Năm Nhập Học:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="class_year_textfield" layoutX="180.0" layoutY="260.0" prefWidth="200.0" />
-                                          <ChoiceBox fx:id="class_sex" layoutX="180.0" layoutY="220.0" prefWidth="200.0" />
-                                          <Button fx:id="class_add_button" layoutX="54.0" layoutY="324.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Them">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Button>
-                                          <Button fx:id="class_find_button" layoutX="240.0" layoutY="388.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Tim">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Button>
-                                          <Button fx:id="class_delete_button" layoutX="54.0" layoutY="388.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Xoa">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Button>
-                                          <Button fx:id="class_fix_button" layoutX="240.0" layoutY="324.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Sua">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Button>
+                                          <TextField fx:id="studentYearEnrollTxt" layoutX="180.0" layoutY="260.0" prefWidth="200.0" />
+                                          <ChoiceBox fx:id="studentGenderOpt" layoutX="180.0" layoutY="220.0" prefWidth="200.0" />
+                                          <HBox layoutX="4.0" layoutY="381.0" prefHeight="55.0" prefWidth="395.0" spacing="20.0">
+                                             <children>
+                                                <Button fx:id="class_add_button1" mnemonicParsing="false" prefHeight="16.0" prefWidth="80.0" text="Thêm">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="class_fix_button1" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Sửa">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="class_delete_button1" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Xóa">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="class_find_button1" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Tìm">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </HBox>
                                        </children>
                                     </AnchorPane>
                                  </children>
                               </Pane>
-                              <TableView fx:id="class_student_table" layoutX="400.0" layoutY="30.0" prefHeight="620.0" prefWidth="650.0" AnchorPane.leftAnchor="420.0">
+                              <TableView fx:id="class_student_table" layoutX="400.0" layoutY="30.0" prefHeight="620.0" prefWidth="670.0" AnchorPane.leftAnchor="410.0">
                                  <columns>
-                                    <TableColumn prefWidth="50.0" resizable="false" text="STT" />
-                                    <TableColumn prefWidth="120.0" resizable="false" text="MSV" />
-                                    <TableColumn minWidth="9.0" prefWidth="200.0" resizable="false" text="Ho Ten" />
-                                    <TableColumn prefWidth="100.0" resizable="false" text="Ngay Sinh" />
-                                    <TableColumn prefWidth="100.0" resizable="false" text="Que Quan" />
-                                    <TableColumn text="Diem danh" />
+                                    <TableColumn fx:id="tblIndex" prefWidth="50.0" resizable="false" text="STT" />
+                                    <TableColumn fx:id="tblID" prefWidth="120.0" resizable="false" text="MSV" />
+                                    <TableColumn fx:id="tblName" minWidth="9.0" prefWidth="160.0" resizable="false" text="Họ Tên" />
+                                    <TableColumn fx:id="tblGender" minWidth="9.0" resizable="false" text="Giới Tính" />
+                                    <TableColumn fx:id="tblBirthDate" prefWidth="100.0" resizable="false" text="Ngày Sinh" />
+                                    <TableColumn fx:id="tblBirthPlace" resizable="false" text="Quê Quán" />
+                                    <TableColumn fx:id="tblStatus" text="Điểm Danh" />
                                  </columns>
                               </TableView>
                            </children>
