@@ -50,7 +50,7 @@
                <left>
                   <AnchorPane prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #2b2b2b;" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox alignment="CENTER" layoutX="-1.0" prefHeight="440.0" prefWidth="200.0" spacing="50.0">
+                        <VBox alignment="CENTER" layoutX="-1.0" prefHeight="330.0" prefWidth="200.0" spacing="25.0">
                            <children>
                               <Button fx:id="sidebarHomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #000000;" text="Trang chủ" textFill="WHITE">
                                  <font>
@@ -79,7 +79,7 @@
                               </Button>
                            </children>
                         </VBox>
-                        <Button fx:id="sidebar__logout__button" alignment="TOP_LEFT" layoutX="24.0" layoutY="630.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Đăng Xuất" textFill="RED">
+                        <Button fx:id="sidebar__logout__button" alignment="TOP_LEFT" layoutX="24.0" layoutY="620.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Đăng Xuất" textFill="RED">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -90,13 +90,13 @@
                <right>
                   <AnchorPane prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fefefe;" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="homePage" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;" visible="false">
+                        <AnchorPane fx:id="homePage" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;">
                            <children>
                               <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1080.0" spacing="110.0" AnchorPane.topAnchor="30.0">
                                  <children>
                                     <Pane prefWidth="250.0" style="-fx-background-color: #3dbf00; -fx-background-radius: 20px;">
                                        <children>
-                                          <Label layoutX="14.0" layoutY="14.0" text="4725" textFill="WHITE">
+                                          <Label fx:id="adminStudentNumber" layoutX="14.0" layoutY="14.0" text="4725" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="36.0" />
                                              </font>
@@ -110,7 +110,7 @@
                                     </Pane>
                                     <Pane prefWidth="250.0" style="-fx-background-color: #009fc7; -fx-background-radius: 20px;">
                                        <children>
-                                          <Label layoutX="14.0" layoutY="14.0" text="14" textFill="WHITE">
+                                          <Label fx:id="adminNumberClass" layoutX="14.0" layoutY="14.0" text="14" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="36.0" />
                                              </font>
@@ -124,7 +124,7 @@
                                     </Pane>
                                     <Pane prefWidth="250.0" style="-fx-background-color: #d10031; -fx-background-radius: 20px;">
                                        <children>
-                                          <Label layoutX="14.0" layoutY="14.0" text="11" textFill="WHITE">
+                                          <Label fx:id="adminNumberTeacher" layoutX="14.0" layoutY="14.0" text="11" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="36.0" />
                                              </font>
@@ -140,7 +140,7 @@
                               </HBox>
                               <HBox alignment="CENTER" layoutY="310.0" prefHeight="280.0" prefWidth="1080.0">
                                  <children>
-                                    <LineChart title="Số sinh viên">
+                                    <LineChart fx:id="homeLinechart" title="Số sinh viên">
                                       <xAxis>
                                         <CategoryAxis side="BOTTOM" />
                                       </xAxis>
@@ -148,7 +148,7 @@
                                         <NumberAxis side="LEFT" />
                                       </yAxis>
                                     </LineChart>
-                                    <PieChart title="Tỉ lệ sinh viên các năm" />
+                                    <PieChart fx:id="homePiechart" title="Tỉ lệ sinh viên các năm" />
                                  </children>
                               </HBox>
                            </children>
@@ -260,7 +260,7 @@
                                     </AnchorPane>
                                  </children>
                               </Pane>
-                              <TableView fx:id="class_student_table" layoutX="421.0" layoutY="30.0" prefHeight="620.0" prefWidth="670.0" AnchorPane.leftAnchor="410.0">
+                              <TableView fx:id="tblTeacher" layoutX="421.0" layoutY="30.0" prefHeight="620.0" prefWidth="670.0" AnchorPane.leftAnchor="410.0">
                                  <columns>
                                     <TableColumn prefWidth="30.0" resizable="false" text="STT" />
                                     <TableColumn resizable="false" text="MGV" />
@@ -277,7 +277,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </AnchorPane>
-                        <AnchorPane fx:id="studentPage" layoutY="5.0" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;">
+                        <AnchorPane fx:id="studentPage" layoutY="5.0" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;" visible="false">
                            <children>
                               <Pane layoutY="30.0" prefHeight="620.0" prefWidth="400.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" AnchorPane.leftAnchor="0.0">
                                  <children>
@@ -390,7 +390,7 @@
                                     </AnchorPane>
                                  </children>
                               </Pane>
-                              <TableView fx:id="class_student_table1" layoutX="421.0" layoutY="30.0" prefHeight="620.0" prefWidth="670.0" AnchorPane.leftAnchor="410.0">
+                              <TableView fx:id="tblStudent" layoutX="421.0" layoutY="30.0" prefHeight="620.0" prefWidth="670.0" AnchorPane.leftAnchor="410.0">
                                  <columns>
                                     <TableColumn prefWidth="30.0" resizable="false" text="STT" />
                                     <TableColumn resizable="false" text="MSV" />
@@ -407,7 +407,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </AnchorPane>
-                        <AnchorPane fx:id="classLogPage" layoutY="14.0" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;">
+                        <AnchorPane fx:id="classLogPage" layoutY="14.0" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;" visible="false">
                            <children>
                               <Pane layoutY="30.0" prefHeight="620.0" prefWidth="400.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" AnchorPane.leftAnchor="0.0">
                                  <children>
@@ -508,13 +508,13 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <DatePicker layoutX="180.0" layoutY="260.0" prefWidth="200.0" />
-                                          <DatePicker layoutX="180.0" layoutY="300.0" prefHeight="25.0" prefWidth="200.0" />
+                                          <DatePicker fx:id="timeStartDate" layoutX="180.0" layoutY="260.0" prefWidth="200.0" />
+                                          <DatePicker fx:id="timeEndDate" layoutX="180.0" layoutY="300.0" prefHeight="25.0" prefWidth="200.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
                               </Pane>
-                              <TableView fx:id="class_student_table11" layoutX="421.0" layoutY="30.0" prefHeight="620.0" prefWidth="670.0" AnchorPane.leftAnchor="410.0">
+                              <TableView fx:id="tblClass" layoutX="421.0" layoutY="30.0" prefHeight="620.0" prefWidth="670.0" AnchorPane.leftAnchor="410.0">
                                  <columns>
                                     <TableColumn resizable="false" text="STT" />
                                     <TableColumn prefWidth="150.0" resizable="false" text="Mã Lớp" />

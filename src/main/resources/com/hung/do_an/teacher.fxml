@@ -73,7 +73,7 @@
                <right>
                   <AnchorPane prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="classesPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;" visible="false">
+                        <AnchorPane fx:id="classesPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;">
                            <children>
                               <VBox layoutY="30.0" prefHeight="620.0" prefWidth="1080.0" AnchorPane.topAnchor="30.0">
                                  <children>
@@ -154,7 +154,7 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="classPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;">
+                        <AnchorPane fx:id="classPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;" visible="false">
                            <children>
                               <Pane layoutY="30.0" prefHeight="620.0" prefWidth="410.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" AnchorPane.leftAnchor="0.0">
                                  <children>
