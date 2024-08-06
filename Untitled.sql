@@ -4,7 +4,7 @@ CREATE TABLE `user` (
   `email` varchar(255),
   `phone_number` varchar(255),
   `birth_place` varchar(255),
-  `date_birth` time,
+  `date_birth` datetime,
   `gender` varchar(255)
 );
 
@@ -28,9 +28,7 @@ CREATE TABLE `classes` (
   `id` varchar(255) PRIMARY KEY,
   `name` varchar(255),
   `teacher_id` varchar(255),
-  `subject_id` varchar(255),
-  `time_start` timestamp,
-  `time_end` timestamp
+  `subject_id` varchar(255)
 );
 
 CREATE TABLE `subjects` (
@@ -42,7 +40,7 @@ CREATE TABLE `subjects` (
 CREATE TABLE `classes_student` (
   `student_id` varchar(255),
   `class_id` varchar(255),
-  `date` timestamp,
+  `date` datetime,
   `status` ENUM ('P', 'PA', 'A')
 );
 
