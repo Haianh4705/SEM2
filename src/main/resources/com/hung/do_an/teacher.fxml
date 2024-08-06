@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -23,11 +24,11 @@
          <children>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <top>
-                  <AnchorPane fx:id="header" prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: #b40000;" BorderPane.alignment="CENTER">
+                  <AnchorPane fx:id="heaer" prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: #b40000;" BorderPane.alignment="CENTER">
                      <children>
                         <VBox fx:id="header__logo" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="headerLogo" fitHeight="113.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="113.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../1516361101-fGQDcKd.png" />
                                  </image>
@@ -37,7 +38,7 @@
                               </ImageView>
                            </children>
                         </VBox>
-                        <Label fx:id="headerWelcome" layoutX="1105.0" layoutY="33.0" text="Welcome Teacher!" textFill="WHITE" AnchorPane.rightAnchor="50.0">
+                        <Label layoutX="1105.0" layoutY="33.0" text="Welcome Teacher!" textFill="WHITE" AnchorPane.rightAnchor="50.0">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -46,23 +47,23 @@
                   </AnchorPane>
                </top>
                <left>
-                  <AnchorPane fx:id="sidebar" prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #2b2b2b;" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #2b2b2b;" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox alignment="CENTER" layoutX="5.0" prefHeight="180.0" prefWidth="200.0" spacing="50.0">
+                        <VBox alignment="CENTER" layoutX="1.0" prefHeight="140.0" prefWidth="200.0" spacing="25.0">
                            <children>
-                              <Button fx:id="sidebarHomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Home" textFill="WHITE">
+                              <Button fx:id="sidebarHomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #000000;" text="Home" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="sidebarClassBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Classes" textFill="WHITE">
+                              <Button fx:id="sidebarClassBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #000000;" text="Classes" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
                            </children>
                         </VBox>
-                        <Button fx:id="sidebarLogout" alignment="TOP_LEFT" layoutX="25.0" layoutY="596.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Log Out" textFill="RED" AnchorPane.bottomAnchor="15.0">
+                        <Button fx:id="sidebarLogout" alignment="TOP_LEFT" layoutX="11.0" layoutY="616.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Log Out" textFill="RED" AnchorPane.bottomAnchor="14.0">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -73,13 +74,13 @@
                <right>
                   <AnchorPane prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="classesPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;" visible="false">
+                        <AnchorPane fx:id="allClassPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;" visible="false">
                            <children>
                               <VBox layoutY="30.0" prefHeight="620.0" prefWidth="1080.0" AnchorPane.topAnchor="30.0">
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1073.0" spacing="110.0">
                                        <children>
-                                          <Button fx:id="classBtn" mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                          <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
                                              <graphic>
                                                 <Pane fx:id="class1Btn" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #3dbf00; -fx-background-radius: 30;">
                                                    <children>
@@ -102,7 +103,7 @@
                                                 </Pane>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="classBtn" mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                          <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
                                              <graphic>
                                                 <Pane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #009fc7; -fx-background-radius: 20px;">
                                                    <children>
@@ -125,7 +126,7 @@
                                                 </Pane>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="class__button" mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                          <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: transparent;">
                                              <graphic>
                                                 <Pane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #d10031; -fx-background-radius: 30px;">
                                                    <children>
@@ -156,9 +157,9 @@
                         </AnchorPane>
                         <AnchorPane fx:id="classPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;">
                            <children>
-                              <Pane layoutY="30.0" prefHeight="620.0" prefWidth="410.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" AnchorPane.leftAnchor="0.0">
+                              <Pane layoutY="30.0" prefHeight="620.0" prefWidth="400.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" AnchorPane.leftAnchor="0.0">
                                  <children>
-                                    <VBox alignment="CENTER_LEFT" prefHeight="180.0" prefWidth="410.0" spacing="10.0" style="-fx-border-color: #ccc;">
+                                    <VBox alignment="CENTER_LEFT" prefHeight="180.0" prefWidth="400.0" spacing="10.0" style="-fx-border-color: #ccc;">
                                        <children>
                                           <Label fx:id="className" text="C2307L">
                                              <font>
@@ -182,48 +183,48 @@
                                     </VBox>
                                     <AnchorPane layoutY="179.0" prefHeight="450.0" prefWidth="410.0">
                                        <children>
-                                          <Label fx:id="studentName" layoutX="30.0" layoutY="20.0" text="Student Name:">
+                                          <Label layoutX="30.0" layoutY="20.0" text="Student Name:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
                                           <TextField fx:id="studentNameTxt" layoutX="180.0" layoutY="20.0" prefWidth="200.0" />
-                                          <Label fx:id="studentEmail" layoutX="30.0" layoutY="60.0" text="Email:">
+                                          <Label layoutX="30.0" layoutY="60.0" text="Email:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
                                           <TextField fx:id="studentEmailTxt" layoutX="180.0" layoutY="60.0" prefWidth="200.0" />
-                                          <Label fx:id="studentPhoneNumber" layoutX="30.0" layoutY="100.0" text="Phone Number:">
+                                          <Label layoutX="30.0" layoutY="100.0" text="Phone Number:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
                                           <TextField fx:id="studentPhoneNumberTxt" layoutX="180.0" layoutY="100.0" prefWidth="200.0" />
-                                          <Label fx:id="studentBirthPlace" layoutX="30.0" layoutY="140.0" text="Birth Place">
+                                          <Label layoutX="30.0" layoutY="140.0" text="Gender:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="studentBirthPlaceTxt" layoutX="180.0" layoutY="140.0" prefWidth="200.0" />
-                                          <Label fx:id="studentBirthDate" layoutX="30.0" layoutY="180.0" text="Birth Date:">
+                                          <ChoiceBox fx:id="studentGenderOpt" layoutX="180.0" layoutY="140.0" prefWidth="200.0" />
+                                          <Label layoutX="30.0" layoutY="180.0" text="Birth Date:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="studentBirthDateTxt" layoutX="180.0" layoutY="180.0" prefWidth="200.0" />
-                                          <Label fx:id="studentGender" layoutX="30.0" layoutY="220.0" text="Gender:">
+                                          <DatePicker fx:id="studentBirthDatePick" layoutX="180.0" layoutY="181.0" prefWidth="200.0" />
+                                          <Label layoutX="30.0" layoutY="220.0" text="Birth Place">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="studentYearEnroll" layoutX="30.0" layoutY="260.0" text="Enroll Year:">
+                                          <TextField fx:id="studentBirthPlaceTxt" layoutX="180.0" layoutY="220.0" prefWidth="200.0" />
+                                          <Label layoutX="30.0" layoutY="260.0" text="Enroll Year:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
                                           <TextField fx:id="studentYearEnrollTxt" layoutX="180.0" layoutY="260.0" prefWidth="200.0" />
-                                          <ChoiceBox fx:id="studentGenderOpt" layoutX="180.0" layoutY="220.0" prefWidth="200.0" />
                                           <HBox layoutX="1.0" layoutY="381.0" prefHeight="55.0" prefWidth="410.0" spacing="30.0">
                                              <children>
                                                 <Button fx:id="classAddBtn" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save">
@@ -250,15 +251,15 @@
                                     </AnchorPane>
                                  </children>
                               </Pane>
-                              <TableView fx:id="class_student_table" layoutX="400.0" layoutY="30.0" prefHeight="620.0" prefWidth="670.0" AnchorPane.leftAnchor="420.0">
+                              <TableView fx:id="tblClass" layoutX="420.0" layoutY="30.0" prefHeight="620.0" prefWidth="640.0" AnchorPane.leftAnchor="420.0">
                                  <columns>
-                                    <TableColumn fx:id="tblIndex" prefWidth="50.0" resizable="false" text="No" />
-                                    <TableColumn fx:id="tblID" prefWidth="120.0" resizable="false" text="ID" />
-                                    <TableColumn fx:id="tblName" minWidth="9.0" prefWidth="160.0" resizable="false" text="Name" />
-                                    <TableColumn fx:id="tblGender" minWidth="9.0" resizable="false" text="Gender" />
-                                    <TableColumn fx:id="tblBirthDate" prefWidth="100.0" resizable="false" text="Birth Date" />
-                                    <TableColumn fx:id="tblBirthPlace" resizable="false" text="Birth Place" />
-                                    <TableColumn fx:id="tblStatus" text="Status" />
+                                    <TableColumn prefWidth="50.0" resizable="false" text="No" />
+                                    <TableColumn prefWidth="120.0" resizable="false" text="ID" />
+                                    <TableColumn minWidth="9.0" prefWidth="140.0" resizable="false" text="Name" />
+                                    <TableColumn minWidth="9.0" resizable="false" text="Gender" />
+                                    <TableColumn prefWidth="100.0" resizable="false" text="Birth Date" />
+                                    <TableColumn resizable="false" text="Birth Place" />
+                                    <TableColumn text="Status" />
                                  </columns>
                               </TableView>
                            </children>
