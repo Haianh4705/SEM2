@@ -142,4 +142,23 @@ public class TeachersEntity extends BaseEntity<Teachers>{
         
         return itemFind;
     }
+    
+    public int countTeachers() {
+        int cnt = 0;
+        openConnection();
+        
+        String sql = "select count(id) as num from teachers";
+        try {
+            statement = con.prepareStatement(sql);
+            ResultSet res = statement.executeQuery();
+            
+            while (res.next()) {
+                cnt = res.getInt(1);
+            }
+        } catch (Exception e) {
+            Logger.getLogger(TeachersEntity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        closeConnection();
+        return cnt;
+    }
 }

@@ -209,6 +209,8 @@ public class AdminController {
     void initialize() throws IOException {
         TeachersEntity teachers_mgr;
         teachers_mgr = new TeachersEntity();
+        teachers_mgr.openConnection();
+        
     }
 
 }
