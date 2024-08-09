@@ -47,8 +47,6 @@ CREATE TABLE `marks` (
   `mark` float
 );
 
-ALTER TABLE `teachers` ADD FOREIGN KEY (`id`) REFERENCES `user` (`id`);
-
 ALTER TABLE `classes` ADD FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`);
 
 ALTER TABLE `classes` ADD FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`);
@@ -57,12 +55,8 @@ ALTER TABLE `marks` ADD FOREIGN KEY (`student_id`) REFERENCES `students` (`id`);
 
 ALTER TABLE `students` ADD FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`);
 
-ALTER TABLE `admin` ADD FOREIGN KEY (`id`) REFERENCES `user` (`id`);
-
 ALTER TABLE `classes_student` ADD FOREIGN KEY (`student_id`) REFERENCES `students` (`id`);
 
 ALTER TABLE `classes_student` ADD FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`);
-
-ALTER TABLE `students` ADD FOREIGN KEY (`id`) REFERENCES `user` (`id`);
 
 ALTER TABLE `marks` ADD FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`);
