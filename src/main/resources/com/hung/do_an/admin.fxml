@@ -65,27 +65,27 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="sidebarHomeBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="243.0" style="-fx-background-color: #000000;" text="Home" textFill="WHITE">
+                  <Button fx:id="sidebarHomeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="243.0" style="-fx-background-color: #000000;" text="Home" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sidebarSubjectBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="254.0" style="-fx-background-color: #000000;" text="Subject's Manager" textFill="WHITE" GridPane.rowIndex="1">
+                  <Button fx:id="sidebarSubjectBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="254.0" style="-fx-background-color: #000000;" text="Subject Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sidebarTeacherBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="291.0" style="-fx-background-color: #000000;" text="Teacher's Manager" textFill="WHITE" GridPane.rowIndex="2">
+                  <Button fx:id="sidebarTeacherBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="291.0" style="-fx-background-color: #000000;" text="Teacher Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sidebarStudentBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #000000;" text="Student's Manager" textFill="WHITE" GridPane.rowIndex="3">
+                  <Button fx:id="sidebarStudentBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #000000;" text="Student Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sidebarClassBtn" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="333.0" style="-fx-background-color: #000000;" text="Class' Manager" textFill="WHITE" GridPane.rowIndex="4">
+                  <Button fx:id="sidebarClassBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="333.0" style="-fx-background-color: #000000;" text="Class Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -372,7 +372,7 @@
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="teacherNumberLabel" text="Number of teachers: 20" GridPane.rowIndex="2">
+                                                <Label fx:id="teacherNumberLabel" text="Number of teachers: 0" GridPane.rowIndex="2">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>

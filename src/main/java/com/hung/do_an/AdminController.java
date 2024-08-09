@@ -1,6 +1,6 @@
 package com.hung.do_an;
 
-import java.io.IOException;
+import java.sql.ResultSet;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
@@ -183,7 +183,7 @@ public class AdminController {
     private TextField teacherEmailTxt;
 
     @FXML
-    private ChoiceBox<?> teacherGenderOpt;
+    private ChoiceBox<String> teacherGenderOpt;
 
     @FXML
     private TextField teacherIDTxt;
@@ -201,16 +201,25 @@ public class AdminController {
     private TextField teacherPhoneNumberTxt;
 
     @FXML
-    void logOut(MouseEvent event) throws IOException {
+    void logOut(MouseEvent event) throws Exception {
         App.setRoot("login");
     }
     
     @FXML
-    void initialize() throws IOException {
-        TeachersEntity teachers_mgr;
-        teachers_mgr = new TeachersEntity();
-        teachers_mgr.openConnection();
+    void initialize() throws Exception {
+        DBManager db = new DBManager();
+        db.connectDB();
+        String sql = "select count(id) as num from teachers";
+        db.stmt = db.conn.prepareStatement(sql);
+        ResultSet res = db.stmt.executeQuery();
+        int cnt = 0;
+        while (res.next()) {
+            cnt = res.getInt("num");
+        }
+        db.closeDB();
+        teacherNumberLabel.setText("Number of teachers: " + String.valueOf(cnt));
         
+        teacherGenderOpt.getItems().addAll("Man", "Woman");
     }
 
 }

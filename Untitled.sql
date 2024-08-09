@@ -6,7 +6,7 @@ CREATE TABLE `students` (
   `email` varchar(255),
   `phone_number` varchar(255),
   `birth_place` varchar(255),
-  `date_birth` datetime,
+  `date_birth` date,
   `gender` varchar(255)
 );
 
@@ -17,7 +17,7 @@ CREATE TABLE `teachers` (
   `email` varchar(255),
   `phone_number` varchar(255),
   `birth_place` varchar(255),
-  `date_birth` datetime,
+  `date_birth` date,
   `gender` varchar(255)
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE `subjects` (
 CREATE TABLE `classes_student` (
   `student_id` varchar(255),
   `class_id` varchar(255),
-  `date` datetime,
+  `date` date,
   `status` ENUM ('P', 'PA', 'A')
 );
 

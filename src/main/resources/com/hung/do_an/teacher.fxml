@@ -24,7 +24,7 @@
                <children>
                   <ImageView fitHeight="85.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Documents/GitHub_Pulls/src/main/resources/1516361101-fGQDcKd.png" />
+                        <Image url="@../../../1516361101-fGQDcKd.png" />
                      </image>
                   </ImageView>
                </children>

@@ -155,7 +155,7 @@ public class TeachersEntity extends BaseEntity<Teachers>{
             while (res.next()) {
                 cnt = res.getInt(1);
             }
-        } catch (Exception e) {
+        } catch (SQLException ex) {
             Logger.getLogger(TeachersEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
         closeConnection();
