@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class LoginController {
 
@@ -46,13 +47,12 @@ public class LoginController {
     }
     
     @FXML
-    void checkLogin() throws IOException {
+    void checkLogin(MouseEvent event) throws IOException {
         String username = login_username.getText();
         String pwd = login_password.getText();
         
         if (username.equals("AD123") && pwd.equals("123456")) {
-            String fxml = "admin";
-            App.setRoot(fxml);
+            App.setRoot("admin");
         }
         
         System.out.println(username);

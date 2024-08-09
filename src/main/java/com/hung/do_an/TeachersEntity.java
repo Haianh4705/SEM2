@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class TeachersEntity extends BaseEntity<Teachers>{
     private static TeachersEntity instance = null;
     
-    private TeachersEntity() {
+    TeachersEntity() {
     }
     
     public synchronized static TeachersEntity getInstance() {
