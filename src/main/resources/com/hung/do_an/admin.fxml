@@ -95,7 +95,7 @@
                <right>
                   <AnchorPane prefHeight="663.0" prefWidth="1080.0" style="-fx-background-color: #fefefe;" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="homePage" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;">
+                        <AnchorPane fx:id="homePage" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;" visible="false">
                            <children>
                               <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1080.0" spacing="110.0" AnchorPane.topAnchor="30.0">
                                  <children>
@@ -244,7 +244,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </AnchorPane>
-                        <AnchorPane fx:id="teacherManagerPage" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #fff;">
+                        <AnchorPane fx:id="teacherManagerPage" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #fff;" visible="false">
                            <children>
                               <Pane layoutY="30.0" prefHeight="620.0" prefWidth="400.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" AnchorPane.leftAnchor="0.0">
                                  <children>
@@ -369,7 +369,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </AnchorPane>
-                        <AnchorPane fx:id="studentManagerPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;">
+                        <AnchorPane fx:id="studentManagerPage" prefHeight="620.0" prefWidth="1080.0" style="-fx-background-color: #fff;" visible="false">
                            <children>
                               <Pane layoutY="30.0" prefHeight="620.0" prefWidth="400.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" AnchorPane.leftAnchor="0.0">
                                  <children>
@@ -588,7 +588,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </AnchorPane>
-                        <AnchorPane fx:id="allClassPage" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;">
+                        <AnchorPane fx:id="allClassPage" prefHeight="670.0" prefWidth="1080.0" style="-fx-background-color: #ebebeb;" visible="false">
                            <children>
                               <VBox layoutY="30.0" prefHeight="620.0" prefWidth="1080.0" AnchorPane.topAnchor="30.0">
                                  <children>

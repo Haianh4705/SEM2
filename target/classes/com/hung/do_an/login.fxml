@@ -19,7 +19,7 @@
                <right>
                   <AnchorPane prefHeight="200.0" prefWidth="640.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="200.0" fitWidth="218.0" layoutX="220.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="login_icon" fitHeight="200.0" fitWidth="218.0" layoutX="220.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images.jpg" />
                            </image>
@@ -29,7 +29,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="260.0" layoutY="360.0" prefHeight="30.0" prefWidth="240.0" promptText="ADMIN01">
+                        <TextField fx:id="login_username" layoutX="260.0" layoutY="360.0" prefHeight="30.0" prefWidth="240.0" promptText="ADMIN01">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -39,12 +39,12 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <PasswordField layoutX="260.0" layoutY="420.0" prefHeight="30.0" prefWidth="240.0" promptText="123456">
+                        <PasswordField fx:id="login_password" layoutX="260.0" layoutY="420.0" prefHeight="30.0" prefWidth="240.0" promptText="123456">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </PasswordField>
-                        <Button layoutX="260.0" layoutY="500.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Đăng Nhập">
+                        <Button fx:id="login_button" layoutX="260.0" layoutY="500.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Đăng Nhập">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -55,7 +55,7 @@
                <left>
                   <AnchorPane prefHeight="720.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="720.0" fitWidth="640.0" pickOnBounds="true">
+                        <ImageView fx:id="login_image" fitHeight="720.0" fitWidth="640.0" pickOnBounds="true">
                            <image>
                               <Image url="@../../../login_img.png" />
                            </image>
