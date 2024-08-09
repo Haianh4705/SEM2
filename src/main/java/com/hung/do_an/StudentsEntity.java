@@ -57,7 +57,7 @@ public class StudentsEntity extends BaseEntity<Students>{
     public void insert(Students item) {
         openConnection();
         
-        String sql = "insert into students(id, name, email, phone_number, birth_place, date_birth, gender, pwd, year, class_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into students(id, name, email, phone_number, birth_place, date_birth, gender, year, class_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             statement = con.prepareStatement(sql);
             statement.setString(1, item.getId());
@@ -67,9 +67,8 @@ public class StudentsEntity extends BaseEntity<Students>{
             statement.setString(5, item.getBirth_place());
             statement.setString(6, item.getDate_birth());
             statement.setString(7, item.getGender());
-            statement.setString(8, Students.encrypt(item.getPwd()));
-            statement.setInt(9, item.getYear());
-            statement.setString(10, item.getClass_id());
+            statement.setInt(8, item.getYear());
+            statement.setString(9, item.getClass_id());
             
             statement.execute();
         } catch (SQLException ex) {
@@ -94,10 +93,9 @@ public class StudentsEntity extends BaseEntity<Students>{
             statement.setString(4, item.getBirth_place());
             statement.setString(5, item.getDate_birth());
             statement.setString(6, item.getGender());
-            statement.setString(7, item.getPwd());
-            statement.setInt(8, item.getYear());
-            statement.setString(9, item.getClass_id());
-            statement.setString(10, item.getId());
+            statement.setInt(7, item.getYear());
+            statement.setString(8, item.getClass_id());
+            statement.setString(9, item.getId());
             
             statement.execute();
         } catch (SQLException ex) {

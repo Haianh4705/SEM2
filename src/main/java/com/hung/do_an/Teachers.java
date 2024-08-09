@@ -6,14 +6,21 @@ package com.hung.do_an;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 
 /**
  *
  * @author ADMIN
  */
 public class Teachers extends Users {
+    
+    static Cipher cipher;
+    String pwd;
 
     public Teachers() {
     }
@@ -103,14 +110,30 @@ public class Teachers extends Users {
         this.gender = gender;
     }
 
-    @Override
     public String getPwd() {
         return pwd;
     }
 
-    @Override
     public void setPwd(String pwd) {
-        this.pwd = pwd;
+        try {
+            this.pwd = encrypt(pwd);
+        } catch (Exception ex) {
+            Logger.getLogger(Teachers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static String encrypt(String pwd)
+            throws Exception {
+         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        keyGenerator.init(128); // block size is 128bits
+        SecretKey secretKey = keyGenerator.generateKey();
+         cipher = Cipher.getInstance("AES");
+        byte[] plainTextByte = pwd.getBytes();
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        byte[] encryptedByte = cipher.doFinal(plainTextByte);
+        Base64.Encoder encoder = Base64.getEncoder();
+        String encryptedText = encoder.encodeToString(encryptedByte);
+        return encryptedText;
     }
 
 }

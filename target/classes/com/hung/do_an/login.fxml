@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hung.do_an.LoginController">
    <children>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
          <children>
@@ -44,7 +44,7 @@
                               <Font size="14.0" />
                            </font>
                         </PasswordField>
-                        <Button fx:id="login_button" layoutX="260.0" layoutY="500.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Đăng Nhập">
+                        <Button fx:id="login_button" layoutX="260.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#checkLogin" prefHeight="50.0" prefWidth="150.0" text="Đăng Nhập">
                            <font>
                               <Font size="18.0" />
                            </font>

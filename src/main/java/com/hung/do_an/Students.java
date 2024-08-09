@@ -17,16 +17,10 @@ public class Students extends Users{
     int year;
     String class_id;
 
-    public Students() {
-    }
+    public Students() {}
 
-    public Students(int year, String class_id) {
-        this.year = year;
-        this.class_id = class_id;
-    }
-
-    public Students(int year, String class_id, String id, String name, String email, String phone_number, String birth_place, String date_birth, String gender, String pwd) throws Exception {
-        super(id, name, email, phone_number, birth_place, date_birth, gender, pwd);
+    public Students(int year, String class_id, String id, String name, String email, String phone_number, String birth_place, String date_birth, String gender) throws Exception {
+        super(id, name, email, phone_number, birth_place, date_birth, gender);
         this.year = year;
         this.class_id = class_id;
     }
@@ -40,7 +34,6 @@ public class Students extends Users{
             this.birth_place = resultSet.getString("birth_place");
             this.date_birth = resultSet.getString("date_birth");
             this.gender = resultSet.getString("gender");
-            this.pwd = resultSet.getString("pwd");
             this.year = resultSet.getInt("year");
             this.class_id = resultSet.getString("class_id");
         } catch (SQLException ex) {
@@ -132,19 +125,5 @@ public class Students extends Users{
     @Override
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    @Override
-    public String getPwd() {
-        return pwd;
-    }
-
-    @Override
-    public void setPwd(String pwd) {
-        try {
-            this.pwd = encrypt(pwd);
-        } catch (Exception ex) {
-            Logger.getLogger(Students.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 }
