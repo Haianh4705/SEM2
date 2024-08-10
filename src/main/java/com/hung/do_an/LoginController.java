@@ -38,7 +38,7 @@ public class LoginController {
     private TextField login_username; // Value injected by FXMLLoader
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
-    void initialize() {
+    void initialize() throws Exception {
         assert login_button != null : "fx:id=\"login_button\" was not injected: check your FXML file 'login.fxml'.";
         assert login_icon != null : "fx:id=\"login_icon\" was not injected: check your FXML file 'login.fxml'.";
         assert login_image != null : "fx:id=\"login_image\" was not injected: check your FXML file 'login.fxml'.";
