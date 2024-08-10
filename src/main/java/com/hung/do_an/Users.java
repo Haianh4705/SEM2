@@ -14,12 +14,14 @@ import javax.crypto.SecretKey;
  * @author ADMIN
  */
 public class Users {
-    String id, name, email, phone_number, birth_place, date_birth, gender;
+    static Cipher cipher; 
+    
+    String id, name, email, phone_number, birth_place, date_birth, gender, pwd;
 
     public Users() {
     }
 
-    public Users(String id, String name, String email, String phone_number, String birth_place, String date_birth, String gender) throws Exception {
+    public Users(String id, String name, String email, String phone_number, String birth_place, String date_birth, String gender, String pwd) throws Exception {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -27,6 +29,7 @@ public class Users {
         this.birth_place = birth_place;
         this.date_birth = date_birth;
         this.gender = gender;
+        this.pwd = encrypt(pwd);
     }
 
     public String getId() {
@@ -83,5 +86,27 @@ public class Users {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+    
+    public static String encrypt(String pwd)
+            throws Exception {
+         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        keyGenerator.init(128); // block size is 128bits
+        SecretKey secretKey = keyGenerator.generateKey();
+         cipher = Cipher.getInstance("AES");
+        byte[] plainTextByte = pwd.getBytes();
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        byte[] encryptedByte = cipher.doFinal(plainTextByte);
+        Base64.Encoder encoder = Base64.getEncoder();
+        String encryptedText = encoder.encodeToString(encryptedByte);
+        return encryptedText;
     }
 }

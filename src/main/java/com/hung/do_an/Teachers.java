@@ -6,37 +6,79 @@ package com.hung.do_an;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
 
 /**
- *
  * @author ADMIN
  */
 public class Teachers extends Users {
-    
-    static Cipher cipher;
-    String pwd;
 
-    public Teachers() {
+    String class_id;
+    String day_of_attendance;
+    Boolean is_start_atten;
+
+    public void setClass_id(String class_id) {
+        this.class_id = class_id;
     }
+
+    public String getDay_of_attendance() {
+        return day_of_attendance;
+    }
+
+    public void setDay_of_attendance(String day_of_attendance) {
+        this.day_of_attendance = day_of_attendance;
+    }
+
+    public Boolean getIs_start_atten() {
+        return is_start_atten;
+    }
+
+    public void setIs_start_atten(Boolean is_start_atten) {
+        this.is_start_atten = is_start_atten;
+    }
+
+    public Teachers(String id) {
+        this.id = id;
+    }
+
 
     public Teachers(ResultSet resultSet) {
         try {
-            this.id = resultSet.getString("id");
-            this.name = resultSet.getString("name");
-            this.email = resultSet.getString("email");
-            this.phone_number = resultSet.getString("phone_number");
-            this.birth_place = resultSet.getString("birth_place");
-            this.date_birth = resultSet.getString("date_birth");
-            this.gender = resultSet.getString("gender");
-            this.pwd = resultSet.getString("pwd");
+            if (resultSet.next()) {
+                this.id = resultSet.getString("id");
+                this.name = resultSet.getString("name");
+                this.email = resultSet.getString("email");
+                this.phone_number = resultSet.getString("phone_number");
+                this.birth_place = resultSet.getString("birth_place");
+                this.date_birth = resultSet.getString("date_birth");
+                this.gender = resultSet.getString("gender");
+                this.pwd = resultSet.getString("pwd");
+            }
         } catch (SQLException ex) {
-            Logger.getLogger(Students.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Teachers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Teachers(ResultSet resultSet_user, ResultSet resultSet_teacher) {
+        try {
+            if (resultSet_user.next()) {
+                this.id = resultSet_user.getString("id");
+                this.name = resultSet_user.getString("name");
+                this.email = resultSet_user.getString("email");
+                this.phone_number = resultSet_user.getString("phone_number");
+                this.birth_place = resultSet_user.getString("birth_place");
+                this.date_birth = resultSet_user.getString("date_birth");
+                this.gender = resultSet_user.getString("gender");
+                this.pwd = resultSet_user.getString("pwd");
+            }
+            if (resultSet_teacher.next()) {
+                this.class_id = resultSet_teacher.getString("class_id");
+            }
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Teachers.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -110,30 +152,17 @@ public class Teachers extends Users {
         this.gender = gender;
     }
 
+    @Override
     public String getPwd() {
         return pwd;
     }
 
+    @Override
     public void setPwd(String pwd) {
-        try {
-            this.pwd = encrypt(pwd);
-        } catch (Exception ex) {
-            Logger.getLogger(Teachers.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public static String encrypt(String pwd)
-            throws Exception {
-         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-        keyGenerator.init(128); // block size is 128bits
-        SecretKey secretKey = keyGenerator.generateKey();
-         cipher = Cipher.getInstance("AES");
-        byte[] plainTextByte = pwd.getBytes();
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        byte[] encryptedByte = cipher.doFinal(plainTextByte);
-        Base64.Encoder encoder = Base64.getEncoder();
-        String encryptedText = encoder.encodeToString(encryptedByte);
-        return encryptedText;
+        this.pwd = pwd;
     }
 
+    public String getClass_id() {
+        return this.class_id;
+    }
 }

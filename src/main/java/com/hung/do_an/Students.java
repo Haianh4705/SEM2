@@ -17,25 +17,67 @@ public class Students extends Users{
     int year;
     String class_id;
 
-    public Students() {}
+    public Students() {
+    }
 
-    public Students(int year, String class_id, String id, String name, String email, String phone_number, String birth_place, String date_birth, String gender) throws Exception {
-        super(id, name, email, phone_number, birth_place, date_birth, gender);
+    public Students(String id){
+        this.id = id;
+    }
+
+    public Students(int year, String class_id, String attendance) {
         this.year = year;
         this.class_id = class_id;
     }
-    
+
+
+    public Students(int year, String class_id, String id, String name, String email, String phone_number, String birth_place, String date_birth, String gender, String pwd) throws Exception {
+        super(id, name, email, phone_number, birth_place, date_birth, gender, pwd);
+        this.year = year;
+        this.class_id = class_id;
+    }
+
+    public Students(int id) {
+
+    }
+
     public Students(ResultSet resultSet) {
         try {
-            this.id = resultSet.getString("id");
-            this.name = resultSet.getString("name");
-            this.email = resultSet.getString("email");
-            this.phone_number = resultSet.getString("phone_number");
-            this.birth_place = resultSet.getString("birth_place");
-            this.date_birth = resultSet.getString("date_birth");
-            this.gender = resultSet.getString("gender");
-            this.year = resultSet.getInt("year");
-            this.class_id = resultSet.getString("class_id");
+            if (resultSet.next()) {  // Di chuyển con trỏ đến bản ghi đầu tiên
+                this.id = resultSet.getString("id");
+                this.name = resultSet.getString("name");
+                this.email = resultSet.getString("email");
+                this.phone_number = resultSet.getString("phone_number");
+                this.birth_place = resultSet.getString("birth_place");
+                this.date_birth = resultSet.getString("date_birth");
+                this.gender = resultSet.getString("gender");
+                this.pwd = resultSet.getString("pwd");
+                this.year = resultSet.getInt("year");
+                this.class_id = resultSet.getString("class_id");
+            } else {
+                throw new SQLException("No data in ResultSet");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Students.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Students(ResultSet resultSet_user,ResultSet resultSet_student) {
+        try {
+            if(resultSet_user.next()){
+                this.id = resultSet_user.getString("id");
+                this.name = resultSet_user.getString("name");
+                this.email = resultSet_user.getString("email");
+                this.phone_number = resultSet_user.getString("phone_number");
+                this.birth_place = resultSet_user.getString("birth_place");
+                this.date_birth = resultSet_user.getString("date_birth");
+                this.gender = resultSet_user.getString("gender");
+                this.pwd = resultSet_user.getString("pwd");
+            }if(resultSet_student.next()){
+                this.year = resultSet_student.getInt("year");
+                this.class_id = resultSet_student.getString("class_id");
+            }
+
+
         } catch (SQLException ex) {
             Logger.getLogger(Students.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -125,5 +167,19 @@ public class Students extends Users{
     @Override
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String getPwd() {
+        return pwd;
+    }
+
+    @Override
+    public void setPwd(String pwd) {
+        try {
+            this.pwd = encrypt(pwd);
+        } catch (Exception ex) {
+            Logger.getLogger(Students.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

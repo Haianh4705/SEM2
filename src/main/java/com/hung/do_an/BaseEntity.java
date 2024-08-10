@@ -18,14 +18,15 @@ import java.util.logging.Logger;
  * @param <T>
  */
 public abstract class BaseEntity<T> {
-    final String HOST = "jdbc:mysql://localhost:3308/student_manager";
-    final String USERNAME = "root";
-    final String PASSWORD = "";
-    
-    Connection con = null;
-    PreparedStatement statement = null;
 
-    public void openConnection() {
+    static final String HOST = "jdbc:mysql://localhost:3306/student_manager";
+    static final String USERNAME = "root";
+    static final String PASSWORD = "";
+
+    static Connection con = null;
+    static PreparedStatement statement = null;
+
+    public static void openConnection() {
         try {
             con = DriverManager.getConnection(HOST, USERNAME, PASSWORD);
         } catch (SQLException ex) {
@@ -33,7 +34,7 @@ public abstract class BaseEntity<T> {
         }
     }
 
-    public void closeConnection() {
+    public static void closeConnection() {
         if (statement != null) {
             try {
                 statement.close();

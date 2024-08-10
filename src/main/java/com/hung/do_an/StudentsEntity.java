@@ -4,6 +4,7 @@
  */
 package com.hung.do_an;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,52 +13,51 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author teacher
  */
-public class StudentsEntity extends BaseEntity<Students>{
+public class StudentsEntity extends BaseEntity<Students> {
     private static StudentsEntity instance = null;
-    
+
     private StudentsEntity() {
     }
-    
+
     public synchronized static StudentsEntity getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new StudentsEntity();
         }
-        
+
         return instance;
     }
 
     @Override
     public List<Students> findAll() {
         List<Students> dataList = new ArrayList<>();
-        
+
         openConnection();
-        
+
         String sql = "select * from students";
         try {
             statement = con.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
-            
-            while(resultSet.next()) {
+
+            while (resultSet.next()) {
                 Students students = new Students(resultSet);
                 dataList.add(students);
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
-        
+
         return dataList;
     }
 
     @Override
     public void insert(Students item) {
         openConnection();
-        
-        String sql = "insert into students(id, name, email, phone_number, birth_place, date_birth, gender, year, class_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        String sql = "insert into students(id, name, email, phone_number, birth_place, date_birth, gender, pwd, year, class_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             statement = con.prepareStatement(sql);
             statement.setString(1, item.getId());
@@ -67,23 +67,24 @@ public class StudentsEntity extends BaseEntity<Students>{
             statement.setString(5, item.getBirth_place());
             statement.setString(6, item.getDate_birth());
             statement.setString(7, item.getGender());
-            statement.setInt(8, item.getYear());
-            statement.setString(9, item.getClass_id());
-            
+            statement.setString(8, Students.encrypt(item.getPwd()));
+            statement.setInt(9, item.getYear());
+            statement.setString(10, item.getClass_id());
+
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
     }
 
     @Override
     public void update(Students item) {
         openConnection();
-        
+
         String sql = "update students set name=?,email=?,phone_number=?,birth_place=?,date_birth=?,gender=?,year=?,class_id=? where id=?";
         try {
             statement = con.prepareStatement(sql);
@@ -96,54 +97,67 @@ public class StudentsEntity extends BaseEntity<Students>{
             statement.setInt(7, item.getYear());
             statement.setString(8, item.getClass_id());
             statement.setString(9, item.getId());
-            
+
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
     }
 
     @Override
     public void delete(Students item) {
         openConnection();
-        
+
         String sql = "delete from students where id=?";
         try {
             statement = con.prepareStatement(sql);
             statement.setString(1, item.getId());
-            
+
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
     }
 
     @Override
     public Students findById(Students item) {
         Students itemFind = null;
-        
+
         openConnection();
-        
-        String sql = "select * from books where id = ?";
+
+        String sql_student = "SELECT * FROM students WHERE id = ?";
         try {
-            statement = con.prepareStatement(sql);
+            statement = con.prepareStatement(sql_student);
             statement.setString(1, item.getId());
-            ResultSet resultSet = statement.executeQuery();
-            
-            while(resultSet.next()) {
-                itemFind = new Students(resultSet);
-                break;
-            }
+            ResultSet resultSet_student = statement.executeQuery();
+            itemFind = new Students(resultSet_student);
         } catch (SQLException ex) {
             Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
-        
+
         return itemFind;
     }
+
+    public void updateStudentAttendance(String studentId, boolean isAtten) {
+        openConnection();
+
+        String sql = "UPDATE students SET is_atten = ? WHERE id = ?";
+
+        try {
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setBoolean(1, isAtten);
+            statement.setString(2, studentId);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
