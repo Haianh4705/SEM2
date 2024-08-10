@@ -52,7 +52,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <GridPane alignment="CENTER" prefHeight="450.0" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+            <GridPane alignment="CENTER" prefHeight="400.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -62,7 +62,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Button fx:id="sidebarHomeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="243.0" style="-fx-background-color: #000000;" text="Home" textAlignment="CENTER" textFill="WHITE">
@@ -96,7 +95,7 @@
       </AnchorPane>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="homePage" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                      <children>
@@ -156,9 +155,9 @@
                         </GridPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <AnchorPane prefHeight="250.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="230.0">
                      <children>
-                        <GridPane alignment="CENTER" hgap="20.0" layoutY="-84.66666666666667" prefHeight="285.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="-85.0">
+                        <GridPane alignment="CENTER" hgap="20.0" layoutY="-84.66666666666667" prefHeight="285.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -182,29 +181,33 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="subjectManagerPage" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <GridPane hgap="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="681.6667073567708" minWidth="162.66670735677081" prefWidth="468.99997965494794" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="837.9999593098958" minWidth="10.0" prefWidth="439.1111246744792" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="837.9999593098958" minWidth="10.0" prefWidth="439.1111246744792" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="0.0">
+                        <AnchorPane prefHeight="200.0" prefWidth="0.0" GridPane.columnSpan="2">
                            <children>
                               <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                  </columnConstraints>
                                  <rowConstraints>
-                                    <RowConstraints maxHeight="180.0" minHeight="150.0" prefHeight="180.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="419.1110941569011" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="419.1110941569011" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <AnchorPane prefHeight="0.0" prefWidth="0.0" style="-fx-border-color: #ccc;">
+                                    <AnchorPane prefHeight="0.0" prefWidth="0.0" style="-fx-border-color: #ccc;" GridPane.rowSpan="2">
                                        <children>
                                           <GridPane alignment="CENTER_LEFT" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                                              <columnConstraints>
@@ -235,7 +238,7 @@
                                           </GridPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="0.0" prefWidth="412.0" style="-fx-border-color: #ccc;" GridPane.rowIndex="1">
+                                    <AnchorPane prefHeight="0.0" prefWidth="412.0" style="-fx-border-color: #ccc;" GridPane.rowIndex="2" GridPane.rowSpan="2">
                                        <children>
                                           <GridPane alignment="CENTER" prefHeight="55.0" prefWidth="20.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                              <columnConstraints>
@@ -249,7 +252,7 @@
                                              <children>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                    <children>
-                                                      <Button fx:id="classAddBtn1" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="subjectAddBtn" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -258,7 +261,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                                    <children>
-                                                      <Button fx:id="classDeleteBtn1" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="subjectDeleteBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -267,7 +270,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                                    <children>
-                                                      <Button fx:id="classSearchBtn1" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Search" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="subjectSearchBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Search" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -276,14 +279,12 @@
                                                 </AnchorPane>
                                              </children>
                                           </GridPane>
-                                          <GridPane alignment="CENTER_LEFT" hgap="5.0" layoutX="23.333333333333332" layoutY="22.666666666666664" prefWidth="369.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                          <GridPane alignment="CENTER_LEFT" hgap="5.0" layoutX="23.333333333333332" layoutY="22.666666666666664" prefHeight="247.0" prefWidth="407.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="21.0">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.88880920410156" minWidth="10.0" prefWidth="140.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.33333333333337" minWidth="10.0" prefWidth="229.33333333333337" />
                                              </columnConstraints>
                                              <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
@@ -308,7 +309,7 @@
                               </GridPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
                            <children>
                               <TableView fx:id="tblSubject" prefHeight="620.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
@@ -328,29 +329,33 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="teacherManagerPage" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <GridPane hgap="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="681.6667073567708" minWidth="162.66670735677081" prefWidth="505.33333333333326" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="837.9999593098958" minWidth="10.0" prefWidth="696.3333333333333" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="837.9999593098958" minWidth="10.0" prefWidth="535.3333333333333" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="0.0">
+                        <AnchorPane prefHeight="200.0" prefWidth="0.0" GridPane.columnSpan="2">
                            <children>
-                              <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <GridPane prefHeight="599.0" prefWidth="682.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints maxHeight="180.0" minHeight="150.0" prefHeight="180.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="419.1110941569011" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="285.99995930989576" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="419.1110941569011" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <AnchorPane prefHeight="0.0" prefWidth="0.0" style="-fx-border-color: #ccc;">
+                                    <AnchorPane prefHeight="309.0" prefWidth="682.0" style="-fx-border-color: #ccc;" GridPane.rowSpan="2">
                                        <children>
                                           <GridPane alignment="CENTER_LEFT" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                                             <columnConstraints>
@@ -381,7 +386,7 @@
                                           </GridPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="0.0" prefWidth="412.0" style="-fx-border-color: #ccc;" GridPane.rowIndex="1">
+                                    <AnchorPane prefHeight="525.0" prefWidth="682.0" style="-fx-border-color: #ccc;" GridPane.rowIndex="2" GridPane.rowSpan="2">
                                        <children>
                                           <GridPane alignment="CENTER" prefHeight="55.0" prefWidth="20.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                             <columnConstraints>
@@ -395,7 +400,7 @@
                                              <children>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                    <children>
-                                                      <Button fx:id="classAddBtn" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="teacherAddBtn" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -404,7 +409,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                                    <children>
-                                                      <Button fx:id="classDeleteBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="teacherDeleteBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -413,7 +418,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                                    <children>
-                                                      <Button fx:id="classSearchBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Search" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="teacherSearchBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Search" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -494,9 +499,9 @@
                               </GridPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
                            <children>
-                              <TableView fx:id="tblTeacher" prefHeight="620.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="tblTeacher" layoutX="15.333333333333334" prefHeight="960.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
                                     <TableColumn minWidth="30.0" prefWidth="30.0" text="No" />
                                     <TableColumn minWidth="20.0" prefWidth="50.0" text="ID" />
@@ -517,29 +522,33 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="studentManagerPage" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <GridPane hgap="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="681.6667073567708" minWidth="162.66670735677081" prefWidth="444.000020345052" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="837.9999593098958" minWidth="10.0" prefWidth="596.6666463216145" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="837.9999593098958" minWidth="10.0" prefWidth="596.6666463216145" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="0.0">
+                        <AnchorPane prefHeight="200.0" prefWidth="0.0" GridPane.columnSpan="2">
                            <children>
                               <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                  </columnConstraints>
                                  <rowConstraints>
-                                    <RowConstraints maxHeight="180.0" minHeight="150.0" prefHeight="180.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="419.1110941569011" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="419.1110941569011" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <AnchorPane prefHeight="0.0" prefWidth="0.0" style="-fx-border-color: #ccc;">
+                                    <AnchorPane prefHeight="0.0" prefWidth="0.0" style="-fx-border-color: #ccc;" GridPane.rowSpan="2">
                                        <children>
                                           <GridPane alignment="CENTER_LEFT" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                                              <columnConstraints>
@@ -570,7 +579,7 @@
                                           </GridPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="0.0" prefWidth="412.0" style="-fx-border-color: #ccc;" GridPane.rowIndex="1">
+                                    <AnchorPane prefHeight="0.0" prefWidth="412.0" style="-fx-border-color: #ccc;" GridPane.rowIndex="2" GridPane.rowSpan="2">
                                        <children>
                                           <GridPane alignment="CENTER" prefHeight="55.0" prefWidth="20.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                              <columnConstraints>
@@ -584,7 +593,7 @@
                                              <children>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                    <children>
-                                                      <Button fx:id="classAddBtn2" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="studentAddBtn" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -593,7 +602,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                                    <children>
-                                                      <Button fx:id="classDeleteBtn2" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="studentDeleteBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -602,7 +611,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                                    <children>
-                                                      <Button fx:id="classSearchBtn2" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Search" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="studentSearchBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Search" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -611,7 +620,7 @@
                                                 </AnchorPane>
                                              </children>
                                           </GridPane>
-                                          <GridPane alignment="CENTER_LEFT" hgap="5.0" layoutX="23.333333333333332" layoutY="22.666666666666664" prefWidth="369.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                          <GridPane alignment="CENTER_LEFT" hgap="5.0" layoutX="23.333333333333332" layoutY="22.666666666666664" prefWidth="369.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.88880920410156" minWidth="10.0" prefWidth="140.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.33333333333337" minWidth="10.0" prefWidth="229.33333333333337" />
@@ -690,7 +699,7 @@
                               </GridPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
                            <children>
                               <TableView fx:id="tblStudent" prefHeight="620.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
@@ -713,29 +722,33 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="classManagerPage" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <GridPane hgap="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="681.6667073567708" minWidth="162.66670735677081" prefWidth="444.000020345052" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="837.9999593098958" minWidth="10.0" prefWidth="596.6666463216145" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="837.9999593098958" minWidth="10.0" prefWidth="596.6666463216145" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="0.0">
+                        <AnchorPane prefHeight="200.0" prefWidth="0.0" GridPane.columnSpan="2">
                            <children>
                               <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                  </columnConstraints>
                                  <rowConstraints>
-                                    <RowConstraints maxHeight="180.0" minHeight="150.0" prefHeight="180.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="419.1110941569011" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="438.6666564941406" minHeight="10.0" prefHeight="419.1110941569011" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <AnchorPane prefHeight="0.0" prefWidth="0.0" style="-fx-border-color: #ccc;">
+                                    <AnchorPane prefHeight="0.0" prefWidth="0.0" style="-fx-border-color: #ccc;" GridPane.rowSpan="2">
                                        <children>
                                           <GridPane alignment="CENTER_LEFT" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                                              <columnConstraints>
@@ -766,7 +779,7 @@
                                           </GridPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="0.0" prefWidth="412.0" style="-fx-border-color: #ccc;" GridPane.rowIndex="1">
+                                    <AnchorPane prefHeight="0.0" prefWidth="412.0" style="-fx-border-color: #ccc;" GridPane.rowIndex="2" GridPane.rowSpan="2">
                                        <children>
                                           <GridPane alignment="CENTER" prefHeight="55.0" prefWidth="20.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                              <columnConstraints>
@@ -780,7 +793,7 @@
                                              <children>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                    <children>
-                                                      <Button fx:id="classAddBtn21" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="classAddBtn" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -789,7 +802,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                                    <children>
-                                                      <Button fx:id="classDeleteBtn21" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="classDeleteBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -798,7 +811,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                                    <children>
-                                                      <Button fx:id="classSearchBtn21" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Search" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                                                      <Button fx:id="classSearchBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Search" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
@@ -852,7 +865,7 @@
                               </GridPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
                            <children>
                               <TableView fx:id="tblClass" prefHeight="620.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>

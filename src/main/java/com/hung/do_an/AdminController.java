@@ -216,6 +216,7 @@ public class AdminController {
         while (res.next()) {
             cnt = res.getInt("num");
         }
+        res.close();
         db.closeDB();
         teacherNumberLabel.setText("Number of teachers: " + String.valueOf(cnt));
         
