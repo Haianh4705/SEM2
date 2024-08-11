@@ -194,7 +194,7 @@
                                                                 <Font size="48.0"/>
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="class_name_subject_label" text="Java">
+                                                        <Label fx:id="class_name_subject_label" text="">
                                                             <font>
                                                                 <Font size="18.0"/>
                                                             </font>
@@ -203,7 +203,7 @@
                                                         <HBox spacing="10.0" alignment="CENTER_LEFT">
 
                                                             <Label fx:id="class_number_student_label"
-                                                                   text="So Sinh Vien: 20">
+                                                                   text="">
                                                                 <font>
                                                                     <Font size="18.0"/>
                                                                 </font>

@@ -59,6 +59,29 @@ public class ClassesEntity extends BaseEntity<Classes> {
         }
     }
 
+    public static String getClassName(String id){
+        Subjects subjects = new Subjects();
+        try {
+            openConnection();
+
+            String sql = "SELECT * from subjects JOIN classes ON subjects.id = classes.subject_id where classes.id = ?";
+            statement = con.prepareStatement(sql);
+            statement.setString(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                subjects = new Subjects(
+                        rs.getString("id"),
+                        rs.getString("name")
+                );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            closeConnection();
+
+        }
+        return subjects.getName();
+    }
 
     public static void resetAllStudentAttendance(String id) {
         try {

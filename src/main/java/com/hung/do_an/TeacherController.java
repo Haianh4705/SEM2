@@ -39,10 +39,15 @@ public class TeacherController {
     private Button attendance;
     @FXML
     private Button reset;
+    @FXML
+    private Label class_number_student_label;
+    @FXML
+    private Label class_name_subject_label;
     private Teachers teachers = new Teachers("");
     private Classes classes = new Classes();
     private TeachersEntity teachersEntity = TeachersEntity.getInstance();
     private ClassesEntity classesEntity = ClassesEntity.getInstance();
+
 
     public void initialize() {
 
@@ -110,6 +115,8 @@ public class TeacherController {
         List<Students> studentsList = teachersEntity.findAllByClassId(className ,id);
         ObservableList<Students> observableStudentsList = FXCollections.observableArrayList(studentsList);
         class_student_table.setItems(observableStudentsList);
+        class_number_student_label.setText("Sĩ số: " + studentsList.size());
+        class_name_subject_label.setText(ClassesEntity.getClassName(classes.getClassId()));
     };
 
     private List<Classes> getClassNamesForTeacher(String id) {
