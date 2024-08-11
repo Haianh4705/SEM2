@@ -26,6 +26,7 @@ public abstract class BaseEntity<T> {
     static Connection con = null;
     static PreparedStatement statement = null;
 
+
     public static void openConnection() {
         try {
             con = DriverManager.getConnection(HOST, USERNAME, PASSWORD);

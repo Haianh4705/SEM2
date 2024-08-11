@@ -2,11 +2,19 @@ package com.hung.do_an;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 public class StudentController {
+
+    @FXML
+    private VBox buttonContainer;
+
+    @FXML
+    private ScrollPane buttonScrollPane;
+
     @FXML
     private TextField class_name_textfield;
     @FXML
@@ -27,15 +35,34 @@ public class StudentController {
     private Label class_name_subject_label;
     @FXML
     private Label class_number_student_label;
-
+private Students student;
     private StudentsEntity studentsEntity = StudentsEntity.getInstance();
 
     public void initialize() {
+    }
 
+    private void handleButtonClick(String studentId, String classId){
+        studentsEntity.attend(studentId,classId);
+        reset();
+    }
+
+    void reset(){
+        buttonContainer.getChildren().clear();
+        List<Classes> items = fetchDataFromDatabase();
+        for (Classes item : items) {
+            Button button = new Button("Điểm danh lớp " + item.getClassName());
+            button.setPrefWidth(300);
+            button.setOnAction(event -> handleButtonClick(student.getId() , item.getClassId())); // Set action with id
+            buttonContainer.getChildren().add(button);
+        }
+    }
+
+    private List<Classes> fetchDataFromDatabase() {
+        return studentsEntity.getAllNotAttendedClasses(student.getId());
     }
 
     public void setStudentId(String studentId) {
-        Students student = studentsEntity.findById(new Students(studentId));
+        student = studentsEntity.findById(new Students(studentId));
         if (student != null) {
             class_name_textfield.setText(student.getName());
             class_email_textfield.setText(student.getEmail());
@@ -63,6 +90,14 @@ public class StudentController {
         } else {
             // Handle case where student is not found
             System.out.println("Student not found for ID: " + studentId);
+        }
+        List<Classes> items = fetchDataFromDatabase();
+
+        for (Classes item : items) {
+            Button button = new Button("Điểm danh lớp " + item.getClassName());
+            button.setPrefWidth(300);
+            button.setOnAction(event -> handleButtonClick(student.getId() , item.getClassId())); // Set action with id
+            buttonContainer.getChildren().add(button);
         }
     }
 }

@@ -1,5 +1,8 @@
 package com.hung.do_an;
 
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,7 +30,9 @@ public class TeacherController {
     @FXML
     private TableColumn<Students, String> col_birth_place;
     @FXML
-    private TableColumn<Students, String> col_attendance;
+    private TableColumn<Students, String> col_attendance_flag;
+    @FXML
+    private TableColumn<Students, String> col_attendance_count;
     @FXML
     private ChoiceBox<String> class_list;
     @FXML
@@ -38,12 +43,23 @@ public class TeacherController {
     private ClassesEntity classesEntity = ClassesEntity.getInstance();
 
     public void initialize() {
+
         col_stt.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_birth_date.setCellValueFactory(new PropertyValueFactory<>("date_birth"));
         col_birth_place.setCellValueFactory(new PropertyValueFactory<>("birth_place"));
-        col_attendance.setCellValueFactory(new PropertyValueFactory<>("attendance"));
+        col_attendance_count.setCellValueFactory(cellData ->
+                new SimpleIntegerProperty(cellData.getValue().getAttendanceCount()).asObject().asString());
+        col_attendance_flag.setCellValueFactory(cellData ->
+        {
+            if(cellData.getValue().getAttendanceFlag()){
+                return new SimpleStringProperty("Da diem danh");
+            }else{
+                return new SimpleStringProperty("X");
+            }
+        });
+
 
         class_list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -69,14 +85,14 @@ public class TeacherController {
                 boolean newFlag = !classes.isAttendanceFlag();
                 classes.setAttendanceFlag(newFlag);
                 classesEntity.changeFlag(classes.getClassId(), newFlag);
-                // Update the button text and color
                 if (newFlag) {
                     attendance.setText("Tắt điểm danh");
-                    attendance.setStyle("-fx-background-color: #ff4e4e;"); // Red background
+                    attendance.setStyle("-fx-background-color: #ff4e4e;");
                 } else {
                     attendance.setText("Bật điểm danh");
-                    attendance.setStyle("-fx-background-color: #ceeece;"); // Green background
+                    attendance.setStyle("-fx-background-color: #ceeece;");
                 }
+
             }
         });
 
