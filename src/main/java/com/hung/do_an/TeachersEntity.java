@@ -4,6 +4,7 @@
  */
 package com.hung.do_an;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,6 +46,17 @@ public class TeachersEntity extends BaseEntity<Teachers> {
 
             while (resultSet.next()) {
                 Classes classes = new Classes(resultSet);
+
+                Date currentDate = new Date(System.currentTimeMillis());
+                String currentDateString = currentDate.toString();
+                if (!classes.getAttendanceDate().toString().equals(currentDateString)) {
+                    String updateSQL = "UPDATE classes SET attendance_flag = FALSE WHERE id = ?";
+                    PreparedStatement statement_2 = con.prepareStatement(updateSQL);
+                    statement_2.setString(1, classes.getClassId());
+                    statement_2.executeUpdate();
+                    ClassesEntity.resetAllStudentAttendance(classes.getClassId());
+                }
+
                 dataList.add(classes);
             }
         } catch (SQLException ex) {
@@ -164,65 +176,7 @@ public class TeachersEntity extends BaseEntity<Teachers> {
         return itemFind;
     }
 
-    public Boolean changeAttenStatus(String id) {
-        openConnection();
 
-        String sql = "SELECT * FROM users JOIN teachers ON users.id = teachers.id WHERE users.id = ?";
-        try {
-            statement = con.prepareStatement(sql);
-            statement.setString(1, id);
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                String dayOfAttendance = resultSet.getString("day_of_attendance");
-                Boolean isStartAtten = resultSet.getBoolean("is_start_atten");
-
-                // Lấy ngày hiện tại dưới dạng chuỗi
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                String currentDay = LocalDate.now().format(formatter);
-
-                if (currentDay.equals(dayOfAttendance)) {
-                    // Ngày hiện tại giống với day_of_attendance
-                    if (isStartAtten == null) {
-                        isStartAtten = false;
-                    } else {
-                        isStartAtten = !isStartAtten;
-                    }
-
-                    // Cập nhật giá trị isStartAtten
-                    String updateSql = "UPDATE teachers SET is_start_atten = ? WHERE id = ?";
-                    PreparedStatement updateStatement = con.prepareStatement(updateSql);
-                    updateStatement.setBoolean(1, isStartAtten);
-                    updateStatement.setString(2, id);
-                    updateStatement.executeUpdate();
-                    updateStatement.close();
-
-                } else {
-                    // Ngày hiện tại khác với day_of_attendance
-                    // Cập nhật day_of_attendance và đặt lại is_atten của tất cả sinh viên về false
-                    String updateSql = "UPDATE teachers SET day_of_attendance = ?, is_start_atten = false WHERE id = ?";
-                    PreparedStatement updateStatement = con.prepareStatement(updateSql);
-                    updateStatement.setString(1, currentDay);
-                    updateStatement.setString(2, id);
-                    updateStatement.executeUpdate();
-                    updateStatement.close();
-
-                    // Đặt lại is_atten của tất cả sinh viên về false
-                    String resetSql = "UPDATE students SET is_atten = false";
-                    PreparedStatement resetStatement = con.prepareStatement(resetSql);
-                    resetStatement.executeUpdate();
-                    resetStatement.close();
-                }
-            }
-
-            resultSet.close();
-            return true;
-
-        } catch (SQLException ex) {
-            Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-    }
 
     public List<Students> findAllByClassId(String className, String teacherId) {
         List<Students> itemsFind = new ArrayList<>();
@@ -250,6 +204,8 @@ public class TeachersEntity extends BaseEntity<Teachers> {
                 student.setDate_birth(resultSet.getString("date_birth"));
                 student.setYear(resultSet.getInt("year"));
                 student.setClass_id(resultSet.getString("class_id"));
+                student.setAttendanceCount(resultSet.getInt("attendance_count"));
+                student.setAttendanceFlag(resultSet.getBoolean("attendance_flag"));
                 // Thêm sinh viên vào danh sách
                 itemsFind.add(student);
             }

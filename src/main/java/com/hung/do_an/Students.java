@@ -16,6 +16,24 @@ import java.util.logging.Logger;
 public class Students extends Users{
     int year;
     String class_id;
+    Boolean attendanceFlag;
+    int attendanceCount;
+
+    public Boolean getAttendanceFlag() {
+        return attendanceFlag;
+    }
+
+    public void setAttendanceFlag(Boolean attendanceFlag) {
+        this.attendanceFlag = attendanceFlag;
+    }
+
+    public int getAttendanceCount() {
+        return attendanceCount;
+    }
+
+    public void setAttendanceCount(int attendanceCount) {
+        this.attendanceCount = attendanceCount;
+    }
 
     public Students() {
     }
@@ -53,6 +71,8 @@ public class Students extends Users{
                 this.pwd = resultSet.getString("pwd");
                 this.year = resultSet.getInt("year");
                 this.class_id = resultSet.getString("class_id");
+//                this.attendanceCount = resultSet.getInt("attendance_count");
+//                this.attendanceFlag = resultSet.getBoolean("attendance_flag");
             } else {
                 throw new SQLException("No data in ResultSet");
             }

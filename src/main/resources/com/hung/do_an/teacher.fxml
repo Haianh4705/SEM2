@@ -313,13 +313,14 @@
                                                              text="STT"/>
                                                 <TableColumn fx:id="col_id" prefWidth="120.0" resizable="false"
                                                              text="MSV"/>
-                                                <TableColumn fx:id="col_name" minWidth="9.0" prefWidth="200.0"
+                                                <TableColumn fx:id="col_name" minWidth="9.0" prefWidth="150.0"
                                                              resizable="false" text="Ho Ten"/>
                                                 <TableColumn fx:id="col_birth_date" prefWidth="100.0" resizable="false"
                                                              text="Ngay Sinh"/>
                                                 <TableColumn fx:id="col_birth_place" prefWidth="100.0" resizable="false"
                                                              text="Que Quan"/>
-                                                <TableColumn fx:id="col_attendance" text="Diem Danh"/>
+                                                <TableColumn fx:id="col_attendance_count" text="So Buoi tham gia" />
+                                                <TableColumn fx:id="col_attendance_flag" text="Diem Danh"/>
 
                                             </columns>
                                         </TableView>

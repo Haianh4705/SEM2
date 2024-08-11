@@ -15,6 +15,14 @@ public class Classes {
     private boolean attendanceFlag;
     private Date attendanceDate;
 
+    public Date getAttendanceDate() {
+        return attendanceDate;
+    }
+
+    public void setAttendanceDate(Date attendanceDate) {
+        this.attendanceDate = attendanceDate;
+    }
+
     public Classes(){
 
     };
@@ -36,7 +44,7 @@ public class Classes {
             this.semester = resultSet.getString("semester");
             this.teacherId = resultSet.getString("teacher_id");
             this.subjectId = resultSet.getString("subject_id");
-            this.attendanceFlag = resultSet.getBoolean("attendance_status");
+            this.attendanceFlag = resultSet.getBoolean("attendance_flag");
             this.attendanceDate = resultSet.getDate("attendance_date");
         } catch (SQLException ex) {
             Logger.getLogger(Classes.class.getName()).log(Level.SEVERE, null, ex);

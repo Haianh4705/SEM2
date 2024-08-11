@@ -4,6 +4,7 @@
  */
 package com.hung.do_an;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -51,6 +52,64 @@ public class StudentsEntity extends BaseEntity<Students> {
         closeConnection();
 
         return dataList;
+    }
+
+    public void attend(String studentId, String classId) {
+        openConnection();
+        try {
+            String sql = "UPDATE classes_student " +
+                    "SET attendance_flag = true, " +
+                    "attendance_count = attendance_count + 1 " +
+                    "WHERE student_id = ? AND class_id = ?";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, studentId);
+            statement.setString(2, classId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+    }
+
+    public List<Classes> getAllNotAttendedClasses(String studentId) {
+        List<Classes> classesList = new ArrayList<>();
+        String sql = "SELECT * FROM classes " +
+                "JOIN classes_student ON classes.id = classes_student.class_id " +
+                "WHERE classes.attendance_flag = true AND classes_student.attendance_flag = false AND classes_student.student_id = ?";
+
+        try {
+            openConnection();
+            statement = con.prepareStatement(sql);
+            statement.setString(1, studentId);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Classes classes = new Classes(resultSet);
+
+                Date currentDate = new Date(System.currentTimeMillis());
+                String currentDateString = currentDate.toString();
+                if (!classes.getAttendanceDate().toString().equals(currentDateString)) {
+                    String updateSQL = "UPDATE classes SET attendance_flag = FALSE WHERE id = ?";
+                    PreparedStatement statement_2 = con.prepareStatement(updateSQL);
+                    statement_2.setString(1, classes.getClassId());
+                    statement_2.executeUpdate();
+                    ClassesEntity.resetAllStudentAttendance(classes.getClassId());
+                }
+
+
+                classesList.add(classes);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+
+        return classesList;
     }
 
     @Override

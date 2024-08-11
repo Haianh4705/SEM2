@@ -60,15 +60,13 @@ public class ClassesEntity extends BaseEntity<Classes> {
     }
 
 
-    public void resetAllStudentAttendance(String id) {
+    public static void resetAllStudentAttendance(String id) {
         try {
             openConnection();
 
-            String sql = "UPDATE students " +
-                    "JOIN classes_student ON students.id = classes_student.student_id " +
-                    "JOIN classes ON classes_student.class_id = classes.id " +
-                    "SET students.attendance_flag = FALSE " +
-                    "WHERE classes.id = ?";
+            String sql = "UPDATE classes_student " +
+                    "SET attendance_flag = FALSE " +
+                    "WHERE class_id = ?";
             statement = con.prepareStatement(sql);
             statement.setString(1, id);
             statement.executeUpdate();
