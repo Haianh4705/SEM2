@@ -15,20 +15,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author teacher
  */
-public class TeachersEntity extends BaseEntity<Teachers>{
+public class TeachersEntity extends BaseEntity<Teachers> {
     private static TeachersEntity instance = null;
-    
+
     private TeachersEntity() {
     }
-    
+
     public synchronized static TeachersEntity getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new TeachersEntity();
         }
-        
+
         return instance;
     }
 
@@ -44,7 +43,7 @@ public class TeachersEntity extends BaseEntity<Teachers>{
             statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 Classes classes = new Classes(resultSet);
                 dataList.add(classes);
             }
@@ -60,31 +59,31 @@ public class TeachersEntity extends BaseEntity<Teachers>{
     @Override
     public List<Teachers> findAll() {
         List<Teachers> dataList = new ArrayList<>();
-        
+
         openConnection();
-        
+
         String sql = "select * from Teachers";
         try {
             statement = con.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
-            
-            while(resultSet.next()) {
+
+            while (resultSet.next()) {
                 Teachers teachers = new Teachers(resultSet);
                 dataList.add(teachers);
             }
         } catch (SQLException ex) {
             Logger.getLogger(TeachersEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
-        
+
         return dataList;
     }
 
     @Override
     public void insert(Teachers item) {
         openConnection();
-        
+
         String sql = "insert into Teachers(id, name, email, phone_number, birth_place, date_birth, gender, pwd, year, class_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             statement = con.prepareStatement(sql);
@@ -96,19 +95,19 @@ public class TeachersEntity extends BaseEntity<Teachers>{
             statement.setString(6, item.getDate_birth());
             statement.setString(7, item.getGender());
             statement.setString(8, item.getPwd());
-            
+
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(TeachersEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
     }
 
     @Override
     public void update(Teachers item) {
         openConnection();
-        
+
         String sql = "update Teachers set name=?,email=?,phone_number=?,birth_place=?,date_birth=?,gender=?,year=?,class_id=? where id=?";
         try {
             statement = con.prepareStatement(sql);
@@ -120,29 +119,29 @@ public class TeachersEntity extends BaseEntity<Teachers>{
             statement.setString(6, item.getGender());
             statement.setString(7, item.getPwd());
             statement.setString(8, item.getId());
-            
+
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(TeachersEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
     }
 
     @Override
     public void delete(Teachers item) {
         openConnection();
-        
+
         String sql = "delete from teachers where id=?";
         try {
             statement = con.prepareStatement(sql);
             statement.setString(1, item.getId());
-            
+
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(TeachersEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         closeConnection();
     }
 
@@ -234,7 +233,8 @@ public class TeachersEntity extends BaseEntity<Teachers>{
                 "JOIN classes_student ON students.id = classes_student.student_id " +
                 "JOIN classes ON classes_student.class_id = classes.id " +
                 "JOIN teachers ON classes.teacher_id = teachers.id " +
-                "WHERE teachers.id = ? AND classes.name = ?";        try {
+                "WHERE teachers.id = ? AND classes.name = ?";
+        try {
             statement = con.prepareStatement(sql);
             statement.setString(1, teacherId);
             statement.setString(2, className);
@@ -262,6 +262,33 @@ public class TeachersEntity extends BaseEntity<Teachers>{
         closeConnection();
 
         return itemsFind;
+    }
+
+    public Classes findClassById(String className, String teacherId) {
+        Classes classes = new Classes();
+        openConnection();
+
+        String sql = "SELECT * FROM classes " +
+                "JOIN teachers ON classes.teacher_id = teachers.id " +
+                "WHERE teachers.id = ? AND classes.name = ?";
+        try {
+            statement = con.prepareStatement(sql);
+            statement.setString(1, teacherId);
+            statement.setString(2, className);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                classes = new Classes(resultSet);
+            }
+
+            resultSet.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentsEntity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+
+        return classes;
     }
 
 }

@@ -30,8 +30,12 @@ public class TeacherController {
     private TableColumn<Students, String> col_attendance;
     @FXML
     private ChoiceBox<String> class_list;
+    @FXML
+    private Button attendance;
     private Teachers teachers = new Teachers("");
+    private Classes classes = new Classes();
     private TeachersEntity teachersEntity = TeachersEntity.getInstance();
+    private ClassesEntity classesEntity = ClassesEntity.getInstance();
 
     public void initialize() {
         col_stt.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -46,6 +50,32 @@ public class TeacherController {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (newValue != null) {
                     updateTableData(newValue, teachers.getId());
+                    classes = teachersEntity.findClassById(newValue, teachers.getId());
+                    attendance.setVisible(true);
+                    if (!classes.isAttendanceFlag()) {
+                        // Attendance flag is false
+                        attendance.setText("Bật điểm danh");
+                        attendance.setStyle("-fx-background-color: #ceeece;"); // Green background
+                    } else {
+                        // Attendance flag is true
+                        attendance.setText("Tắt điểm danh");
+                        attendance.setStyle("-fx-background-color: #ff4e4e;"); // Red background
+                    }
+                }
+            }
+        });
+        attendance.setOnAction(event -> {
+            if (classes != null) {
+                boolean newFlag = !classes.isAttendanceFlag();
+                classes.setAttendanceFlag(newFlag);
+                classesEntity.changeFlag(classes.getClassId(), newFlag);
+                // Update the button text and color
+                if (newFlag) {
+                    attendance.setText("Tắt điểm danh");
+                    attendance.setStyle("-fx-background-color: #ff4e4e;"); // Red background
+                } else {
+                    attendance.setText("Bật điểm danh");
+                    attendance.setStyle("-fx-background-color: #ceeece;"); // Green background
                 }
             }
         });
@@ -56,7 +86,6 @@ public class TeacherController {
         List<Students> studentsList = teachersEntity.findAllByClassId(className ,id);
         ObservableList<Students> observableStudentsList = FXCollections.observableArrayList(studentsList);
         class_student_table.setItems(observableStudentsList);
-
     };
 
     private List<Classes> getClassNamesForTeacher(String id) {
@@ -81,6 +110,9 @@ public class TeacherController {
         teachers = teachersEntity.findById(new Teachers(id));
         class_name_class_label.setText(teachers.getClass_id());
         loadClassList(id);
+    }
+
+    public void reset(){
     }
 
 }

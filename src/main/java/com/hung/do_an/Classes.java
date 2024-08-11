@@ -2,6 +2,7 @@ package com.hung.do_an;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,7 +12,12 @@ public class Classes {
     private String subjectId;
     private String semester;
     private String teacherId;
-    private boolean attendanceStatus;
+    private boolean attendanceFlag;
+    private Date attendanceDate;
+
+    public Classes(){
+
+    };
 
     // Constructor dùng để khởi tạo đối tượng Classes
     public Classes(String classId, String className, String semester, String teacherId, String subjectId) {
@@ -30,6 +36,8 @@ public class Classes {
             this.semester = resultSet.getString("semester");
             this.teacherId = resultSet.getString("teacher_id");
             this.subjectId = resultSet.getString("subject_id");
+            this.attendanceFlag = resultSet.getBoolean("attendance_status");
+            this.attendanceDate = resultSet.getDate("attendance_date");
         } catch (SQLException ex) {
             Logger.getLogger(Classes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -76,11 +84,11 @@ public class Classes {
         this.subjectId = subjectId;
     }
 
-    public boolean isAttendanceStatus() {
-        return attendanceStatus;
+    public boolean isAttendanceFlag() {
+        return attendanceFlag;
     }
 
-    public void setAttendanceStatus(boolean attendanceStatus) {
-        this.attendanceStatus = attendanceStatus;
+    public void setAttendanceFlag(boolean attendanceFlag) {
+        this.attendanceFlag = attendanceFlag;
     }
 }
