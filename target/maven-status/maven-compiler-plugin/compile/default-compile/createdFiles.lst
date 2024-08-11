@@ -8,5 +8,6 @@ com\hung\do_an\Teachers.class
 com\hung\do_an\SecondaryController.class
 com\hung\do_an\Users.class
 com\hung\do_an\LoginController.class
+com\hung\do_an\Teacher.class
 module-info.class
 com\hung\do_an\PrimaryController.class
