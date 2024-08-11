@@ -37,6 +37,8 @@ public class TeacherController {
     private ChoiceBox<String> class_list;
     @FXML
     private Button attendance;
+    @FXML
+    private Button reset;
     private Teachers teachers = new Teachers("");
     private Classes classes = new Classes();
     private TeachersEntity teachersEntity = TeachersEntity.getInstance();
@@ -68,6 +70,7 @@ public class TeacherController {
                     updateTableData(newValue, teachers.getId());
                     classes = teachersEntity.findClassById(newValue, teachers.getId());
                     attendance.setVisible(true);
+                    reset.setVisible(true);
                     if (!classes.isAttendanceFlag()) {
                         // Attendance flag is false
                         attendance.setText("Bật điểm danh");
@@ -80,6 +83,11 @@ public class TeacherController {
                 }
             }
         });
+
+        reset.setOnAction(event -> {
+            updateTableData(classes.getClassName(), teachers.getId());
+        });
+
         attendance.setOnAction(event -> {
             if (classes != null) {
                 boolean newFlag = !classes.isAttendanceFlag();

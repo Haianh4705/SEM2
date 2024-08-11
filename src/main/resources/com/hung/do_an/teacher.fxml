@@ -215,6 +215,12 @@
                                                                         <Insets/>
                                                                     </opaqueInsets>
                                                                 </Button>
+                                                                <Button  visible="false" fx:id="reset" text="làm mới danh sách"
+                                                                        style="-fx-background-color: #b9b9b9;">
+                                                                    <opaqueInsets>
+                                                                        <Insets/>
+                                                                    </opaqueInsets>
+                                                                </Button>
                                                             </children>
                                                         </HBox>
                                                     </children>
