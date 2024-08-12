@@ -50,7 +50,7 @@ public class TeachersEntity extends BaseEntity<Teachers> {
                 Date currentDate = new Date(System.currentTimeMillis());
                 String currentDateString = currentDate.toString();
                 if (!classes.getAttendanceDate().toString().equals(currentDateString)) {
-                    String updateSQL = "UPDATE classes SET attendance_flag = FALSE WHERE id = ?";
+                    String updateSQL = "UPDATE classes SET attendance_flag = FALSE AND attendance_date = CURDATE() WHERE id = ?";
                     PreparedStatement statement_2 = con.prepareStatement(updateSQL);
                     statement_2.setString(1, classes.getClassId());
                     statement_2.executeUpdate();
