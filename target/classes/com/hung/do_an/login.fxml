@@ -44,7 +44,7 @@
                               <Font size="14.0" />
                            </font>
                         </PasswordField>
-                        <Button fx:id="login_button" layoutX="260.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#checkLogin" prefHeight="50.0" prefWidth="150.0" text="Đăng Nhập">
+                        <Button fx:id="login_button" layoutX="260.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#handleLogin" prefHeight="50.0" prefWidth="150.0" text="Đăng Nhập">
                            <font>
                               <Font size="18.0" />
                            </font>

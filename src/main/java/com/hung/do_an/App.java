@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.image.Image;
 
 /**
  * JavaFX App
@@ -19,6 +20,11 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("login"), 1280, 720);
         stage.setScene(scene);
+        stage.setTitle("Student Manager");
+        /*
+        Image icon = new Image(getClass().getResourceAsStream("resources/aptech_icon.png"));
+        stage.getIcons().add(icon);
+        */
         stage.show();
     }
 

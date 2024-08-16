@@ -27,7 +27,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="85.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="85.0" fitWidth="221.0" onMouseClicked="#setHomePage" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../1516361101-fGQDcKd.png" />
                      </image>
@@ -47,7 +47,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2b2b2b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <Button fx:id="sidebarLogOutBtn" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="50.0" prefWidth="120.0" text="Log Out" textFill="RED" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+            <Button fx:id="sidebarLogOutBtn" mnemonicParsing="false" onMouseClicked="#handleLogout" prefHeight="50.0" prefWidth="120.0" text="Log Out" textFill="RED" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -69,22 +69,22 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sidebarSubjectBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="254.0" style="-fx-background-color: #000000;" text="Subject Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
+                  <Button fx:id="sidebarSubjectBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#setSubjectPage" prefHeight="40.0" prefWidth="254.0" style="-fx-background-color: #000000;" text="Subject Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sidebarTeacherBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="291.0" style="-fx-background-color: #000000;" text="Teacher Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
+                  <Button fx:id="sidebarTeacherBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#setTeacherPage" prefHeight="40.0" prefWidth="291.0" style="-fx-background-color: #000000;" text="Teacher Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sidebarStudentBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #000000;" text="Student Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="3">
+                  <Button fx:id="sidebarStudentBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#setStudentPage" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #000000;" text="Student Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sidebarClassBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="333.0" style="-fx-background-color: #000000;" text="Class Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="4">
+                  <Button fx:id="sidebarClassBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#setClassPage" prefHeight="40.0" prefWidth="333.0" style="-fx-background-color: #000000;" text="Class Manager" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>

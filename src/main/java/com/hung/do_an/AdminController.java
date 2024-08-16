@@ -1,10 +1,11 @@
 package com.hung.do_an;
 
-import java.sql.ResultSet;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -193,7 +194,7 @@ public class AdminController {
     private TextField teacherEmailTxt;
 
     @FXML
-    private ChoiceBox<String> teacherGenderOpt;
+    private ChoiceBox<?> teacherGenderOpt;
 
     @FXML
     private TextField teacherIDTxt;
@@ -217,83 +218,43 @@ public class AdminController {
     private Button teacherSearchBtn;
 
     @FXML
-    void logOut(MouseEvent event) throws Exception {
-        App.setRoot("login");
-    }
-    
-    @FXML
-    void initialize() throws Exception {
-        // open database
-        DBManager db = new DBManager();
-        db.connectDB();
-        //setHomePage(db);
-        db.closeDB();
+    void handleLogout(MouseEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText("Dang Xuat");
+        alert.setTitle("Popup");
+        
+        try {
+            if (alert.showAndWait().get() == ButtonType.OK) {
+                App.setRoot("login");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void setHomePage(DBManager db) throws Exception {
-        // set visible
-        homePage.setVisible(true);
-        subjectManagerPage.setVisible(false);
-        teacherManagerPage.setVisible(false);
-        studentManagerPage.setVisible(false);
-        classManagerPage.setVisible(false);
-        /*
-        // set number
-        String sql = "SELECT COUNT(id) as id_count from students UNION ALL SELECT COUNT(id) as id_count from classes UNION ALL SELECT COUNT(id) as is_count from teachers";
-        db.stmt = db.conn.prepareStatement(sql);
-        ResultSet res = db.stmt.executeQuery();
-        int[] cnt = new int[3];
-        int i = 0;
-        while (res.next()) {
-            // cnt[i] = res.getInt("id_count");
-            System.out.println(res.getString("id_count"));
-            i++;
-        }
-        res.close();
-        //homeStudentNumber.setText(String.valueOf(cnt[0]));
-        //homeNumberClass.setText(String .valueOf(cnt[1]));
-        //homeNumberTeacher.setText(String.valueOf(cnt[2]));
-        */
+    void setClassPage(MouseEvent event) {
+
     }
-    
+
     @FXML
-    void setSubjectPage(DBManager db) throws Exception {
-        // set visible
-        homePage.setVisible(false);
-        subjectManagerPage.setVisible(true);
-        teacherManagerPage.setVisible(false);
-        studentManagerPage.setVisible(false);
-        classManagerPage.setVisible(false);
+    void setHomePage(MouseEvent event) {
+
     }
-    
+
     @FXML
-    void setTeacherPage(DBManager db) throws Exception {
-        // set visible
-        homePage.setVisible(false);
-        subjectManagerPage.setVisible(false);
-        teacherManagerPage.setVisible(true);
-        studentManagerPage.setVisible(false);
-        classManagerPage.setVisible(false);
+    void setStudentPage(MouseEvent event) {
+
     }
-    
+
     @FXML
-    void setStudentPage(DBManager db) throws Exception {
-        // set visible
-        homePage.setVisible(false);
-        subjectManagerPage.setVisible(false);
-        teacherManagerPage.setVisible(false);
-        studentManagerPage.setVisible(true);
-        classManagerPage.setVisible(false);
+    void setSubjectPage(MouseEvent event) {
+
     }
-    
+
     @FXML
-    void setClassPage(DBManager db) throws Exception {
-        // set visible
-        homePage.setVisible(false);
-        subjectManagerPage.setVisible(false);
-        teacherManagerPage.setVisible(false);
-        studentManagerPage.setVisible(false);
-        classManagerPage.setVisible(true);
+    void setTeacherPage(MouseEvent event) {
+
     }
+
 }
